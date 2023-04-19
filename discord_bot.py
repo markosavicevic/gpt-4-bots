@@ -3,7 +3,7 @@ import discord
 from discord.ext import commands
 from retrieval_agent import conversational_agent
 
-TOKEN = os.environ["DISCORD_BOT_TOKEN"]  # Set your Discord bot token as an environment variable
+DISCORD_BOT_TOKEN="MTA5NzY0NjQ5MTA0MjA2MjM0Ng.G_VfS3.kiAOXk21ZdxX2BApFGP9md1KpsJWoaE6dwpUso" # Set your Discord bot token as an environment variable
 
 intents = discord.Intents.default()
 intents.typing = False
@@ -23,4 +23,4 @@ async def ask(ctx, *, question):
     await ctx.send(formatted_response)
 
 if __name__ == "__main__":
-    bot.run(TOKEN)
+    bot.run(DISCORD_BOT_TOKEN)
