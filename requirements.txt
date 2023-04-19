@@ -1,0 +1,7 @@
+pydantic
+tiktoken
+langchain
+openai
+pytube
+tqdm
+requests
