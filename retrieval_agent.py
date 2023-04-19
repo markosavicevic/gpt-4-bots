@@ -19,7 +19,7 @@ pinecone.init(
 )
 
 # index_name = "pod-gpt"
-index_name = "book-gpt"
+index_name = "scientific-principles-gpt"
 index = pinecone.Index(index_name)
 
 embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_API_KEY)
@@ -45,15 +45,14 @@ retriever = RetrievalQA.from_chain_type(
 )
 
 # Set up conversational agent
-tool_desc = """Use this tool to answer user questions using Eugene
-Schwartz's book "Breakthrough Advertising". If the user states 'ask Gene'
-use this tool to get the answer. This tool can also be used for follow up
+tool_desc = """Use this tool to answer user questions using Scientific Principles of Hypertrophy Training.
+If the user states 'ask Mike' use this tool to get the answer. This tool can also be used for follow up
 questions from the user."""
 
 tools = [Tool(
     func=retriever.run,
     description=tool_desc,
-    name='Breakthrough Advertising',
+    name='Scientific Priciples',
 )]
 
 memory = ConversationBufferWindowMemory(
@@ -73,7 +72,7 @@ conversational_agent = initialize_agent(
 )
 
 # Add this code snippet to set up the conversational agent prompt
-sys_msg = """You are Eugene Schwartz. You answers the user's questions and complete the user's tasks.\n"""
+sys_msg = """You are Mike Israetel. You answers the user's questions and complete the user's tasks.\n"""
 
 prompt = conversational_agent.agent.create_prompt(
     system_message=sys_msg,
